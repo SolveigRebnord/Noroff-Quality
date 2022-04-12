@@ -104,6 +104,57 @@ h1, p {
 }
 
 
+/* TEster design på checkbox!!!*/
+#periode > ul {
+ list-style-type: disc;
+}
+
+#periode > ul {
+    padding-right: 1em;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    position: relative;
+}
+
+label::before{
+    content: "";
+    background: url(images/success.png);
+    background-position: center;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: -44px;
+    top: -8px;
+
+    transform: scale(0) rotateZ(180deg);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0);
+}
+
+input[type="checkbox"]:checked + label::before {
+    transform: scale(1) rotateZ(0deg);
+}
+
+label::after {
+   content: "";
+   border: 2px solid black;
+   width: 24px;
+   height: 24px;
+   position: absolute;
+   left: -42px;
+   top: -6px;
+   border-radius: 50%;
+}
+
+
 @media (min-width: 1041px) {
     /* Gjøre meny responsiv*/
    header {
