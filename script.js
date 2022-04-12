@@ -6,9 +6,9 @@ const vaarCheck = document.querySelector("input#vaar");
 
 
 
-const laererCheck = document.querySelector("input#laerer");
-const rektorCheck = document.querySelector("input#rektor");
-const studentCampusCheck = document.querySelector("input#student_campus");
+const studentCCheck = document.querySelector("input#studentC");
+const studentOCheck = document.querySelector("input#studentO");
+const nystudentCheck = document.querySelector("input#nystudent");
 
 
 const arrangementCheck = document.querySelector("input#arrangement");
@@ -19,7 +19,7 @@ var products = [];
 
 var dates = [];
 
-const url2 = "https://www.sunroad.no/cms/wp-json/wp/v2/product"; // gir alle products
+const url2 = "https://www.sunroad.no/cms/wp-json/wp/v2/product?per_page=30"; // gir alle products
 fetch(url2)
 .then(response => response.json())
 .then(data => {
@@ -30,9 +30,9 @@ fetch(url2)
 
   products = data;
  
-  laererCheck.disabled=false;
-  studentCampusCheck.disabled=false; // først når product list er loadet, får vi trykke
-  rektorCheck.disabled=false;
+  studentCCheck.disabled=false;
+  studentOCheck.disabled=false; // først når product list er loadet, får vi trykke
+  nystudentCheck.disabled=false;
   //console.log(products);
 })
 .catch((error) => {
@@ -63,13 +63,15 @@ function listTime (array) {
 
 const output = document.querySelector("#posts");
 function listPosts (posts) {
+
     let myList = "";
 
     for (let post of posts) {
-        
-        myList += `${post.title.rendered}`;
+    
+        myList += `${post.title.rendered} <br>`;
 }
     output.innerHTML = myList;
+   
 }
 
 
@@ -82,9 +84,11 @@ vaarCheck.addEventListener('change', listRoller);
 
 
 //er et element, kan ikke si === true
-laererCheck.addEventListener('change', listRoller);
-rektorCheck.addEventListener('change', listRoller);
-studentCampusCheck.addEventListener('change', listRoller);
+studentCCheck.addEventListener('change', listRoller);
+studentOCheck.addEventListener('change', listRoller);
+nystudentCheck.addEventListener('change', listRoller);
+
+
 
 
 function listRoller() {
@@ -95,14 +99,305 @@ function listRoller() {
 
   
 
-  
-
-  if (laererCheck.checked) {
-    let filteredList = products.filter(filterByTeacher);
+  if (studentCCheck.checked) {
+    let filteredList = products.filter(filterByStudentC); 
     listPosts(filteredList);
     //console.log(filteredList);
 }
 
+if (studentOCheck.checked) {
+  let filteredList = products.filter(filterByStudentO); 
+  listPosts(filteredList);
+  //console.log(filteredList);
+}
+
+if (nystudentCheck.checked) {
+  let filteredList = products.filter(filterByNystudent); 
+  listPosts(filteredList);
+  //console.log(filteredList);
+}
+
+if (studentCCheck.checked && studentOCheck.checked) {
+  let filteredList = products.filter(filterByStudentCStudentO); 
+  listPosts(filteredList);
+  //console.log(filteredList);
+}
+
+if (studentCCheck.checked && nystudentCheck.checked) {
+  let filteredList = products.filter(filterByNystudentStudentC); 
+  listPosts(filteredList);
+  //console.log(filteredList);
+}
+
+if (studentOCheck.checked && nystudentCheck.checked) {
+  let filteredList = products.filter(filterByNystudentStudentO); 
+  listPosts(filteredList);
+  //console.log(filteredList);
+}
+
+
+if (studentCCheck.checked && studentOCheck.checked && nystudentCheck.checked) {
+  let filteredList = products;
+  listPosts(filteredList);
+  //console.log(filteredList);
+}
+
+
+
+
+//-----------------------------------------------høst og vår hver for seg med rollene------------------------------------------
+
+
+
+if (hostCheck.checked) {
+
+  let filteredListHost = products.filter(filterByHost);
+  let filteredList = filteredListHost;
+  //listTime (filteredList);
+
+
+  if (studentCCheck.checked && hostCheck.checked) {
+    let filteredList = filteredListHost.filter(filterByStudentC);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (studentOCheck.checked && hostCheck.checked) {
+    let filteredList = filteredListHost.filter(filterByStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+
+  if (nystudentCheck.checked && hostCheck.checked) {
+    let filteredList = filteredListHost.filter(filterByNystudent);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (nystudentCheck.checked && studentCCheck && hostCheck.checked) {
+    let filteredList = filteredListHost.filter(filterByNystudentStudentC);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (nystudentCheck.checked && studentOCheck && hostCheck.checked) {
+    let filteredList = filteredListHost.filter(filterByNystudentStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (studentCCheck.checked && studentOCheck && hostCheck.checked) {
+    let filteredList = filteredListHost.filter(filterByStudentCStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+
+} // slutt høst checked------------------------------------------------
+
+
+
+if (vaarCheck.checked) {
+
+  let filteredListVaar = products.filter(filterByVaar);
+  let filteredList = filteredListVaar;
+  //listTime (filteredList);
+
+
+  if (studentCCheck.checked && vaarCheck.checked) {
+    let filteredList = filteredListVaar.filter(filterByStudentC);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (studentOCheck.checked && vaarCheck.checked) {
+    let filteredList = filteredListVaar.filter(filterByStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+
+  if (nystudentCheck.checked && vaarCheck.checked) {
+    let filteredList = filteredListVaar.filter(filterByNystudent);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (nystudentCheck.checked && studentCCheck && vaarCheck.checked) {
+    let filteredList = filteredListVaar.filter(filterByNystudentStudentC);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (nystudentCheck.checked && studentOCheck && vaarCheck.checked) {
+    let filteredList = filteredListVaar.filter(filterByNystudentStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (studentCCheck.checked && studentOCheck && vaarCheck.checked) {
+    let filteredList = filteredListVaar.filter(filterByStudentCStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+} // slutt vår checked --------------------
+
+
+
+
+  if (studentCCheck.checked && vaarCheck.checked && hostCheck.checked) {
+    let filteredList = products.filter(filterByStudentC);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (studentOCheck.checked && vaarCheck.checked && hostCheck.checked) {
+    let filteredList = products.filter(filterByStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+
+  if (nystudentCheck.checked && vaarCheck.checked && hostCheck.checked) {
+    let filteredList = products.filter(filterByNystudent);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (nystudentCheck.checked && studentCCheck && vaarCheck.checked && hostCheck.checked) {
+    let filteredList = products.filter(filterByNystudentStudentC);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (nystudentCheck.checked && studentOCheck && vaarCheck.checked && hostCheck.checked) {
+    let filteredList = products.filter(filterByNystudentStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (studentCCheck.checked && studentOCheck && vaarCheck.checked && hostCheck.checked) {
+    let filteredList = products.filter(filterByStudentCStudentO);
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+  if (studentCCheck.checked && studentOCheck && nystudentCheck.checked && vaarCheck.checked && hostCheck.checked) {
+    let filteredList = products;
+    listPosts(filteredList);
+    //console.log(filteredList);
+  }
+
+
+
+
+
+
+
+} //hele list roller
+
+
+
+
+// Mangler noe som får listen tom når alle er unchecked
+
+
+
+// Alle filter funksjoner -----------------------------------------------------------------
+
+function filterByHost (item) {
+
+  for (var ting of products) {
+  //console.log(item.date);
+  let dateFormat = new Date(item.date);
+  //console.log(dateFormat);
+  let month = dateFormat.getMonth();
+  //console.log(month);
+  var hostmaaned = [6,7,8,9,10,11]
+
+    if (hostmaaned.includes(month)) {
+      return item.date;
+    }
+}
+}
+
+
+
+function filterByVaar (item) {
+
+  for (var ting of products) {
+  //console.log(item.date);
+  let dateFormat = new Date(item.date);
+  //console.log(dateFormat);
+  let month = dateFormat.getMonth();
+  //console.log(month);
+  var vaarmaaned = [0,1,2,3,4,5]
+
+    if (vaarmaaned.includes(month)) {
+      return item.date;
+    }
+}
+}
+
+
+function filterByStudentC (item) {
+  //console.log(item.product_cat);
+  return item.product_cat.includes(24)  // StudentC ID 24
+}
+
+
+function filterByStudentO (item) {
+  //console.log(item.product_cat);
+  return item.product_cat.includes(23)  // StudentO ID 23
+}
+
+
+function filterByNystudent (item) {
+  //console.log(item.product_cat);
+  return item.product_cat.includes(22)  // Ny student ID 22
+}
+
+
+
+function filterByNystudentStudentC (item) {
+  //console.log(item.product_cat);
+  for (var ting of products) {
+    var values = [22, 24]; 
+  return item.product_cat.some(i => values.includes(i));
+  }
+}
+
+function filterByNystudentStudentO (item) {
+  //console.log(item.product_cat);
+  for (var ting of products) {
+    var values = [22, 23]; 
+  return item.product_cat.some(i => values.includes(i));
+  }
+}
+
+function filterByStudentCStudentO (item) {
+  //console.log(item.product_cat);
+  for (var ting of products) {
+    var values = [24, 23]; 
+  return item.product_cat.some(i => values.includes(i));
+  }
+}
+
+
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*
 
 if (rektorCheck.checked) {
   let filteredList = products.filter(filterByRektor);
@@ -110,12 +405,6 @@ if (rektorCheck.checked) {
   //console.log(filteredList);
 }
 
-
-
-if (studentCampusCheck.checked) {
-  let filteredList = products.filter(filterByStudentCampus);
-  listPosts(filteredList);
-}
 
 if (laererCheck.checked && vaarCheck.checked && hostCheck.checked) {
   let filteredList = products.filter(filterByTeacher);
@@ -128,7 +417,7 @@ if (vaarCheck.checked && hostCheck.checked) {
 } //trenger du denne egt..
 
 
-//-----------------------------------------------høst og vår hver for seg med rollene------------------------------------------
+
 
     if (hostCheck.checked) {
 
@@ -325,48 +614,24 @@ if (vaarCheck.checked && hostCheck.checked && rektorCheck.checked && studentCamp
 
 
 
-} //hele list roller
-
-
-// Mangler noe som får listen tom når alle er unchecked
 
 
 
 
 
-function filterByHost (item) {
 
-  
-  for (var ting of products) {
-  //console.log(item.date);
-  let dateFormat = new Date(item.date);
-  //console.log(dateFormat);
-  let month = dateFormat.getMonth();
-  //console.log(month);
-  var hostmaaned = [6,7,8,9,10,11]
 
-    if (hostmaaned.includes(month)) {
-      return item.date;
-    }
-}
-}
 
-function filterByVaar (item) {
 
-  
-  for (var ting of products) {
-  //console.log(item.date);
-  let dateFormat = new Date(item.date);
-  //console.log(dateFormat);
-  let month = dateFormat.getMonth();
-  //console.log(month);
-  var vaarmaaned = [0,1,2,3,4,5]
 
-    if (vaarmaaned.includes(month)) {
-      return item.date;
-    }
-}
-}
+
+
+
+
+
+
+
+
 
 
 
@@ -412,7 +677,7 @@ function filterByRektorStudentC (item) {
 
 
 
-
+*/
 
 
 
@@ -484,7 +749,7 @@ function filterBySoknaderbeslutninger(item) {
   return item.product_tag.includes(26); // Søknader beslutninger ID 26
 }
 
-}
+
 
 
 
