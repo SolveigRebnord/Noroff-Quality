@@ -1,0 +1,184 @@
+/* MENY */
+header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    height: 70px;
+    background: #EC4526;
+}
+
+nav {
+    margin-left: 25px;
+    display: none;
+    position: fixed;
+    top: 90px;
+    background: #EC4526;
+    z-index: 1000;
+    right: 8px;
+}
+
+nav a {
+    padding: 20px;
+}
+
+/* Fjerne underline på alle linker*/
+a {
+    text-decoration: none;
+}
+
+/* Hamburger meny for mobil versjon*/
+#hamburger-menu {
+    display: none;
+    margin: 10px;
+
+}
+
+#hamburger-menu:checked ~ nav {
+    display: block;
+}
+
+nav ul {
+    padding: 0px;
+}
+
+nav li {
+    display: block;
+    padding: 20px 30px;
+}
+
+/* Sette underline på aktiv side*/
+.action {
+    text-decoration: underline;
+}
+
+header a {
+    color: black;
+}
+
+.logo {
+    width: 135px;
+}
+
+
+/* MAIN SECTION */
+section {
+    background-color: #FAF6F6;
+    height: 500px;
+}
+
+.logo-img {
+    margin: 10px;
+    width: 100px;
+}
+
+h1, p {
+    text-align: center;
+}
+
+
+/* KNAPPENE STUDENT OG ANSATTE */
+.buttons {
+    text-align: center;
+}
+
+.btn-ansatt {
+    display: inline-block;
+    background-color: #7E2323;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 28px;
+    padding: 15px;
+    width: 200px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-student {
+    background-color: #F6D9D9;
+    color: black;
+}
+
+
+/* TEster design på checkbox!!!*/
+#periode > ul {
+ list-style-type: disc;
+}
+
+#periode > ul {
+    padding-right: 1em;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    position: relative;
+}
+
+label::before{
+    content: "";
+    background: url(images/success.png);
+    background-position: center;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: -44px;
+    top: -8px;
+
+    transform: scale(0) rotateZ(180deg);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0);
+}
+
+input[type="checkbox"]:checked + label::before {
+    transform: scale(1) rotateZ(0deg);
+}
+
+label::after {
+   content: "";
+   border: 2px solid black;
+   width: 24px;
+   height: 24px;
+   position: absolute;
+   left: -42px;
+   top: -6px;
+   border-radius: 50%;
+}
+
+
+@media (min-width: 1041px) {
+    /* Gjøre meny responsiv*/
+   header {
+       justify-content: start;
+   }
+
+   nav {
+       display: block;
+       position: static;
+       width: 100%;
+   }
+
+   nav li {
+       display: inline-block;
+       padding: 0px;
+   }
+
+   header label {
+       display: none;
+   }
+
+
+   /*Gjøre logo responsiv */
+ .logo-img {
+    width: 170px;
+ }
+}
