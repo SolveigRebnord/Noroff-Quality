@@ -11,9 +11,15 @@ const studentOCheck = document.querySelector("input#studentO");
 const nystudentCheck = document.querySelector("input#nystudent");
 
 
-const arrangementCheck = document.querySelector("input#arrangement");
 const rapporterevalueringerCheck = document.querySelector("input#rapporterevalueringer");
-const soknaderbeslutningerCheck = document.querySelector("input#soknaderbeslutninger");
+const arrangementerCheck = document.querySelector("input#arrangementer");
+const valgdeltakelseCheck = document.querySelector("input#valgdeltakelse");
+const kontaktmednareingslivetCheck = document.querySelector("input#kontaktmednaeringslivet");
+const viktigedatoerCheck = document.querySelector("input#viktigedatoer");
+const velgalleCheck = document.querySelector("input#velgalle");
+
+
+
 
 var products = [];
 
@@ -90,6 +96,21 @@ nystudentCheck.addEventListener('change', listRoller);
 
 
 
+rapporterevalueringerCheck.addEventListener('change', listRoller);
+arrangementerCheck.addEventListener('change', listRoller);
+valgdeltakelseCheck.addEventListener('change', listRoller);
+kontaktmednareingslivetCheck.addEventListener('change', listRoller);
+viktigedatoerCheck.addEventListener('change', listRoller);
+velgalleCheck.addEventListener('change', listRoller);
+
+
+
+
+
+
+
+
+
 
 function listRoller() {
 
@@ -99,7 +120,7 @@ function listRoller() {
 
   
 
-  if (studentCCheck.checked) {
+if (studentCCheck.checked) {
     let filteredList = products.filter(filterByStudentC); 
     listPosts(filteredList);
     //console.log(filteredList);
@@ -141,6 +162,301 @@ if (studentCCheck.checked && studentOCheck.checked && nystudentCheck.checked) {
   listPosts(filteredList);
   //console.log(filteredList);
 }
+
+
+// kategorier
+
+if (rapporterevalueringerCheck.checked) {
+  let filteredList = products.filter(filterByRapporterevalueringer);
+  listPosts(filteredList);
+  //onsole.log(filteredList);
+}
+
+if (arrangementerCheck.checked) {
+  let filteredList = products.filter(filterByArrangementer);
+  listPosts(filteredList);
+}
+
+if (valgdeltakelseCheck.checked) {
+  let filteredList = products.filter(filterByValgdeltakelse);
+  listPosts(filteredList);
+}
+
+if (kontaktmednareingslivetCheck.checked) {
+  let filteredList = products.filter(filterByKontaktmednaeringslivet);
+  listPosts(filteredList);
+}
+
+if (viktigedatoerCheck.checked) {
+  let filteredList = products.filter(filterByViktigedatoer);
+  listPosts(filteredList);
+}
+
+if (velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+//kombinasjoner
+
+// må vel ha nye filter her? Tenker på om det er mulig å gi en liste inn som er filtrert alt, men da må jo denne if`en nøstes inn i de forrige, og vi får ikke en frittsåtende if som kan behandle checkene selvstendig og frem og tilbake. Ja mer kode åga nye filtre for alle, men sparer på nøstede koder hvor vi må lage muligheten for alle kombinasjoner
+
+
+
+//rapporter/evalueringer ++
+if (rapporterevalueringerCheck.checked && arrangementerCheck.checked) {
+  let filteredList = products.filter((item) => {
+  for (var ting of products) {
+    var values = [21, 27]; 
+  return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && valgdeltakelseCheck.checked) {
+  let filteredList = products.filter((item) => {
+  for (var ting of products) {
+    var values = [21, 29]; 
+  return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && kontaktmednareingslivetCheck.checked) {
+  let filteredList = products.filter((item) => {
+  for (var ting of products) {
+    var values = [21, 26]; 
+  return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [21, 30]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+
+
+
+//arrangemnet ++
+
+if (arrangementerCheck.checked && valgdeltakelseCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [27, 29]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (arrangementerCheck.checked && kontaktmednareingslivetCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [27, 26]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (arrangementerCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [27, 30]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (arrangementerCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+
+
+
+
+
+
+
+
+// valg/deltakelse ++
+
+if (valgdeltakelseCheck.checked && kontaktmednareingslivetCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [29, 26]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (valgdeltakelseCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [29, 30]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+
+if (valgdeltakelseCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+// kontakt med næringslivet ++
+
+if (kontaktmednareingslivetCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [26, 30]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+
+
+if (kontaktmednareingslivetCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+if (viktigedatoerCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+
+
+
+
+
+
+// 3 valg
+// rapport ++
+
+if (rapporterevalueringerCheck.checked && arrangementerCheck.checked && valgdeltakelseCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [21, 27, 29]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+
+if (rapporterevalueringerCheck.checked && arrangementerCheck.checked && kontaktmednareingslivetCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [21, 27, 26]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+
+if (rapporterevalueringerCheck.checked && arrangementerCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [21, 27, 30]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && arrangementerCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+
+if (rapporterevalueringerCheck.checked && valgdeltakelseCheck.checked && kontaktmednareingslivetCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [21, 29, 26]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && valgdeltakelseCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [21, 30, 29]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && valgdeltakelseCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && kontaktmednareingslivetCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [21, 26, 30]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (rapporterevalueringerCheck.checked && kontaktmednareingslivetCheck.checked && velgalleCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+
+// arrangement
+
+
+if (arrangementerCheck.checked && valgdeltakelseCheck.checked && kontaktmednareingslivetCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [27, 29, 26]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (arrangementerCheck.checked && kontaktmednareingslivetCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter((item) => {
+    for (var ting of products) {
+      var values = [27, 30, 26]; 
+    return item.product_tag.some(i => values.includes(i));
+  }});
+  listPosts(filteredList);
+}
+
+if (arrangementerCheck.checked && velgalleCheck.checked && viktigedatoerCheck.checked) {
+  let filteredList = products.filter(filterByVelgalle);
+  listPosts(filteredList);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -296,16 +612,29 @@ if (vaarCheck.checked) {
 
 
 
+
 } //hele list roller
 
 
 
 
 // Mangler noe som får listen tom når alle er unchecked
+// legge inn else på slutten av listRoller eller på hver eneste if?
 
 
 
 // Alle filter funksjoner -----------------------------------------------------------------
+
+function filterByVelgalle (item) {
+  let filteredList = products;
+  valgdeltakelseCheck.checked = true;
+  arrangementerCheck.checked = true;
+  viktigedatoerCheck.checked = true;
+  rapporterevalueringerCheck.checked = true;
+  kontaktmednareingslivetCheck.checked = true;
+  listPosts(filteredList);
+}
+
 
 function filterByHost (item) {
 
@@ -344,20 +673,58 @@ function filterByVaar (item) {
 
 function filterByStudentC (item) {
   //console.log(item.product_cat);
-  return item.product_cat.includes(24)  // StudentC ID 24
+  return item.product_cat.includes(24);  // StudentC ID 24
 }
 
 
 function filterByStudentO (item) {
   //console.log(item.product_cat);
-  return item.product_cat.includes(23)  // StudentO ID 23
+  return item.product_cat.includes(23);  // StudentO ID 23
 }
 
 
 function filterByNystudent (item) {
   //console.log(item.product_cat);
-  return item.product_cat.includes(22)  // Ny student ID 22
+  return item.product_cat.includes(22);  // Ny student ID 22
 }
+
+
+
+
+
+
+
+function filterByRapporterevalueringer (item) {
+  //console.log(item.product_tag);
+  return item.product_tag.includes(21); // Rapporter/evalueringer ID 21
+}
+
+function filterByArrangementer (item) {
+  return item.product_tag.includes(27); // arrangementer ID 27
+}
+
+function filterByValgdeltakelse (item) {
+  return item.product_tag.includes(29); // valg/deltakelse ID 29
+}
+
+function filterByKontaktmednaeringslivet (item) {
+  return item.product_tag.includes(26); // kontakt med næringslivet ID 26
+}
+
+function filterByViktigedatoer (item) {
+  return item.product_tag.includes(30); // viktige datoer ID 30
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -384,6 +751,8 @@ function filterByStudentCStudentO (item) {
   return item.product_cat.some(i => values.includes(i));
   }
 }
+
+
 
 
 
@@ -678,79 +1047,6 @@ function filterByRektorStudentC (item) {
 
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-arrangementCheck.addEventListener('change', listKat);
-rapporterevalueringerCheck.addEventListener('change', listKat);
-soknaderbeslutningerCheck.addEventListener('change', listKat);
-
-
-
-
-function listKat() {
-  console.log("test"+arrangementCheck.checked);
-  if (arrangementCheck.checked) {
-      if (rektorCheck.checked) {
-      let filteredListArrangement = filteredListRektor.filter(filterByArrangement);
-      console.log(filteredListArrangement);
-      //listPosts(filteredListTeacher);
-      }
-      else {
-        console.log("poop");
-      }
-  }
-
-  if (rapporterevalueringerCheck.checked) {
-    let filteredListRapporterevalueringer = products.filter(filterByRapporterevalueringer);
-    //console.log(filteredListRapporterevalueringer)
-    //listPosts(filteredListRektor);
-  }
-
-  if (soknaderbeslutningerCheck.checked) {
-    let filteredListSoknaderbeslutninger = products.filter(filterBySoknaderbeslutninger);
-    //console.log(filteredListSoknaderbeslutninger)
-    //listPosts(filteredListSoknaderbeslutninger);
-  }
-
-}
-
-
-function filterByArrangement(item) {
-  //console.log(item.product_tag);
-  return item.product_tag.includes(27); // Arrangement ID 27
-}
-
-
-function filterByRapporterevalueringer(item) {
-  //console.log(item.product_tag);
-  return item.product_tag.includes(21); // Rapport evaluering ID 21
-}
-
-function filterBySoknaderbeslutninger(item) {
-  //console.log(item.product_tag);
-  return item.product_tag.includes(26); // Søknader beslutninger ID 26
-}
-
-
-
 
 
 
