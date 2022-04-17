@@ -1,0 +1,118 @@
+/*font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Fjalla One', sans-serif;*/
+
+header img {
+    width: 100%;
+}
+
+
+h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 80px;
+    margin: 0;
+}
+
+nav {
+    padding-top: 2rem;
+    display: flex;
+    width: 58%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+nav img {
+    padding: 0 0 0 3rem;
+}
+
+mark {
+    color: red;
+    background: none;
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+/*https://moderncss.dev/pure-css-custom-checkbox-style/*/
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+    box-sizing: border-box;
+    position: relative;
+  
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    transform: scale(0);
+    transform-origin: center;
+    transition: 120ms transform ease-in-out;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+}
+
+input[type="checkbox"]:checked::before {
+    content: url(img/icons8-ok-3.svg);
+    transform: scale(1);
+    position: absolute;
+}
+
+input[type="checkbox"]:not(:checked)::before {
+    content: url(img/icons8-ok-3.svg);
+    transform: scale(0);
+    transform-origin: center;
+    transition: 120ms transform ease-out;
+    position: absolute;
+
+}
+
+
+#periode > ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+ul {
+    padding: 0;
+    margin: 0 0 0 3rem;
+}
+
+.grid-section {
+    display: grid;
+    grid-template-areas: 
+    'filter list list list';
+
+}
+
+.filter {
+    grid-area: filter;
+}
+
+.liste {
+    grid-area: list;
+    text-align: center;
+  
+}

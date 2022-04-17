@@ -18,7 +18,7 @@ const kontaktmednareingslivetCheck = document.querySelector("input#kontaktmednae
 const viktigedatoerCheck = document.querySelector("input#viktigedatoer");
 const velgalleCheck = document.querySelector("input#velgalle");
 
-
+const hostListe = document.getElementById("liste");
 
 
 var products = [];
@@ -73,7 +73,7 @@ function listPosts (posts) {
     let myList = "";
 
     for (let post of posts) {
-    
+
         myList += `${post.title.rendered} <br>`;
 }
     output.innerHTML = myList;
@@ -84,8 +84,6 @@ function listPosts (posts) {
 
 hostCheck.addEventListener('change', listRoller); //ikke bli forvirret av roller, dette er den generelle list med eller uten filter
 vaarCheck.addEventListener('change', listRoller);
-
-
 
 
 
