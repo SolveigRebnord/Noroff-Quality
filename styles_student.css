@@ -1,6 +1,10 @@
 /*font-family: 'Barlow Condensed', sans-serif;
 font-family: 'Fjalla One', sans-serif;*/
 
+body {
+    margin: 3rem 5rem 0 5rem;
+}
+
 header img {
     width: 100%;
 }
@@ -15,7 +19,6 @@ h1 {
 }
 
 nav {
-    padding-top: 2rem;
     display: flex;
     width: 58%;
     align-items: center;
@@ -23,9 +26,12 @@ nav {
     margin-bottom: 2rem;
 }
 
-nav img {
-    padding: 0 0 0 3rem;
+main {
+    padding: 4rem 0 0 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
+
 
 mark {
     color: red;
@@ -36,8 +42,8 @@ mark {
 p {
     text-align: center;
     font-size: 1.2rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 li {
@@ -46,6 +52,10 @@ li {
     align-items: center;
     margin-bottom: 0.5rem;
     gap: 1rem;
+}
+
+.filter > div > ul {
+    margin: 0;
 }
 
 /*https://moderncss.dev/pure-css-custom-checkbox-style/*/

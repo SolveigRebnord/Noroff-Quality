@@ -1,3 +1,5 @@
+
+
 /* MENY */
 header {
     display: flex;
@@ -8,6 +10,7 @@ header {
     font-size: 1rem;
     height: 70px;
     background: #EC4526;
+    width: 100%;
 }
 
 nav {
@@ -23,6 +26,72 @@ nav {
 nav a {
     padding: 20px;
 }
+
+p, h1, h2, h3, ul {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+
+
+h2, h3 {
+    font-weight: 500;
+    padding-top: 3rem;
+}
+
+span {
+    font-weight: 500;
+}
+
+
+.home-top {
+    height: 100vh;
+    background-color: #FAF6F6;
+    padding: 4rem;
+}
+
+.mid-home-top p {
+    width: 800px;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 3rem 0 3rem 0;
+}
+
+.mid-home-top h1 {
+    font-size: 1.6rem;
+}
+
+.mid-home-top {
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.home-bottom {
+    padding: 4rem 4rem 0 4rem;
+}
+
+.home-bottom p {
+    width: 800px;
+    text-align: left;
+}
+
+.home-bottom li {
+    padding-bottom: 1.5rem;
+}
+
+.underlined {
+padding: 0;
+}
+
+.underlined > li {
+    text-decoration: underline;
+    list-style: none;
+    padding-bottom: 0;
+}
+
+
+
+
 
 /* Fjerne underline på alle linker*/
 a {
@@ -64,14 +133,10 @@ header a {
 
 
 /* MAIN SECTION */
-section {
-    background-color: #FAF6F6;
-    height: 500px;
-}
+
 
 .logo-img {
-    margin: 10px;
-    width: 100px;
+    width: 150px;
 }
 
 h1, p {
@@ -81,21 +146,31 @@ h1, p {
 
 /* KNAPPENE STUDENT OG ANSATTE */
 .buttons {
-    text-align: center;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    justify-content: space-evenly;
+
 }
 
 .btn-ansatt {
     display: inline-block;
     background-color: #7E2323;
-    border-radius: 10px;
-    border: 4px double #cccccc;
+    border-color: transparent;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; /*https://getcssscan.com/css-box-shadow-examples*/
     color: #eeeeee;
+    font-family: 'Din Condensed', sans-serif;
     text-align: center;
-    font-size: 28px;
-    padding: 15px;
-    width: 200px;
+    font-size: 26px;
+    letter-spacing: 1px;
+    height: 70px;
+    padding-top: 12px;
+    width: 240px;
     cursor: pointer;
-    margin: 5px;
 }
 
 .btn-student {
@@ -104,7 +179,7 @@ h1, p {
 }
 
 
-/* TEster design på checkbox!!!*/
+/*
 #periode > ul {
  list-style-type: disc;
 }
@@ -153,10 +228,8 @@ label::after {
    top: -6px;
    border-radius: 50%;
 }
+*/
 
-
-@media (min-width: 1041px) {
-    /* Gjøre meny responsiv*/
    header {
        justify-content: start;
    }
@@ -177,8 +250,4 @@ label::after {
    }
 
 
-   /*Gjøre logo responsiv */
- .logo-img {
-    width: 170px;
- }
-}
+

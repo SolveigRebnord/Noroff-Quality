@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansatt</title>
+  <link rel="stylesheet" href="styles_student.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;400;500;600;700&family=Fjalla+One&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/ecce34c200.js" crossorigin="anonymous"></script>
+</head>
+
+<!--font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Fjalla One', sans-serif;-->
+
+
+<body>
+    
+    <!--<header>
+        <img src="img/noroff-header.jpg" alt="Noroff header">
+    </header>
+-->
+    <nav>
+        <a href="index.html"><img src="img/logo.svg" alt="Noroff quality logo"></a>
+        <h1>Ansatt</h1>
+    </nav>
+
+    <p>Se hva du som <mark>ansatt</mark> kan gjøre for å sikre kvalitet under hele skoleåret</p>
+
+
+<main>
+
+<section class="grid-section">
+
+    <div class="filter">
+
+    <div id="periode">
+        <ul>
+            <li>
+                <input type="checkbox" name="periode" id="host"> <label for="host">Høst 2022</label>
+            </li>
+            <li>
+                <input type="checkbox" name="periode" id="vaar"><label for="vaar">Vår 2023</label>
+            </li>
+        </ul>
+    </div>
+
+
+
+<div id="time"></div>
+
+<div><h2>Roller</h2></div>
+
+<div id="roller">
+    <ul>
+        <li>
+            <input type="checkbox" checked name="rolle" id="student"> <label for="student">Ansatt</label>
+        </li>
+        <li>
+            <input type="checkbox" disabled name="rolle" id="studentC"> <label for="studentC">Overordnet ansvar</label>
+        </li>
+        <li>
+            <input type="checkbox" disabled name="rolle" id="studentO"><label for="studentO">Administrativt</label>
+        </li>
+        <li>
+            <input type="checkbox" disabled name="rolle" id="nystudent"> <label for="nystudent">Faglig ansvarlig</label>
+        </li>
+    </ul>
+</div>
+
+<div><h2>Kategorier</h2></div>
+
+<div id="kategorier">
+    <ul>
+        <li>
+            <input type="checkbox" name="kategori" id="rapporterevalueringer"> <label for="rapporterevalueringer"> Rapporter/Evalueringer</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="arrangementer"><label for="arrangementer"> Arrangementer</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="valgdeltakelse"> <label for="valgdeltakelse">Valg/Deltakelse</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="kontaktmednaeringslivet"><label for="kontaktmednaeringslivet"> Kontakt med næringslivet</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="viktigedatoer"><label for="viktigedatoer"> Viktige datoer</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="velgalle"><label for="velgalle"><b> Velg alle </b></label>
+        </li>
+    </ul>
+</div>
+
+</div>
+
+<div class="liste">
+    <h2>Liste</h2>
+    <div id="posts"></div>
+</div>
+
+</section>
+
+</main>
+
+
+<details>
+    <summary>Read more</summary>
+    <p>Place your additional text here.</p>
+</details>
+<!--evt toggle--> 
+
+
+ 
+</body>
+<script src="script_student.js"></script>
+</html>

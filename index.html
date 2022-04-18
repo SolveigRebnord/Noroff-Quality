@@ -4,116 +4,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Home</title>
-  <link rel="stylesheet" href="styles.css">
+    <title>Home</title>
+    <link href="style_index.css" rel="stylesheet">
+    
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"> 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;400;500;600;700&family=Fjalla+One&display=swap" rel="stylesheet">
+    <!--<script src="https://kit.fontawesome.com/79f4911f4f.js" crossorigin="anonymous"></script> Link til ikoner-->
+    
 
-  <script src="https://kit.fontawesome.com/ecce34c200.js" crossorigin="anonymous"></script>
+  <!--<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;400;500;600;700&family=Fjalla+One&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/ecce34c200.js" crossorigin="anonymous"></script>
 </head>
-
-<!--font-family: 'Barlow Condensed', sans-serif;
-font-family: 'Fjalla One', sans-serif;-->
 
 
 <body>
-    
-    <!--<header>
-        <img src="img/noroff-header.jpg" alt="Noroff header">
+    <header>
+        <div class="menu-logo">
+            <img src="img/idk.PNG" class="logo" alt="Logo til Noroff">
+         </div>
+            <label for="hamburger-menu"><i class="fas fa-bars"></i></label>
+            <input type="checkbox" id="hamburger-menu" />
+        <nav>
+            <ul>
+                <li> <a href="">Hjem</a> </li>
+                <li> <a href="">Studier</a> </li>  
+                <li> <a href="">Søknad</a> </li>
+                <li> <a href="">Accelerate</a> </li>
+                <li> <a href="">Om</a> </li>
+                <li> <a href="">Kontakt</a> </li>
+                <li> <a href="">English</a> </li>
+            </ul>
+        </nav>
     </header>
--->
-    <nav>
-        <img src="img/logo.svg" alt="Noroff quality logo">
-        <h1>Student</h1>
-    </nav>
 
-    <p>Se hva du som <mark>student</mark> kan gjøre for å sikre kvalitet under hele skoleåret</p>
+    <main>
 
-<section class="grid-section">
+        <section class="home-top">
 
-    <div class="filter">
+            <img src="img/Quality.png" class="logo-img" alt="Vår egne logo ish ting haha">
+            
+            <div class="mid-home-top">
+                <p>
+                    Kvalitetsarbeidet i Noroff fagskole skal bidra til at våre studenter oppnår et læringsutbytte som holder <span>høy faglig kvalitet</span>, og har <span>høy relevans</span> i dagens og framtidens arbeidsliv
+                </p>
 
-    <div id="periode">
-        <ul>
-            <li>
-                <input type="checkbox" name="periode" id="host"> <label for="host">Høst 2022</label>
-            </li>
-            <li>
-                <input type="checkbox" name="periode" id="vaar"><label for="vaar">Vår 2023</label>
-            </li>
+                <h1>Vis meg hvordan Noroff sikrer kvalitet som</h1>
+            
+                <div class="buttons">
+                    <a href="student.html"><button class="btn-student btn-ansatt">STUDENT</button></a>
+                    <a href="ansatt.html"><button class="btn-ansatt">ANSATT</button></a>
+                </div>
+            </div>
+
+            <i class="fa-solid fa-chevron-down"></i>
+        </section>
+   
+<section class="home-bottom">
+    <h2>HVORFOR BRY OSS OM KVALITET?</h2>
+    <p>
+        Kvalitetsarbeidet i Noroff fagskole skal bidra til at våre studenter oppnår et læringsutbytte som holder høy faglig kvalitet og har høy relevans i dagens og framtidens arbeidsliv. 
+        Fagskolens kvalitetssystem skal sikre systematikk i evaluering og videreutvikling av våre utdanningstilbud. <br> <br>
+
+        Noroff fagskole skal kjennetegnes av kultur for kvalitet, og kvalitetssystemet skal legge til rette for og stimulere til gode prosesser i dette arbeidet. Målrettet, systematisk og kontinuerlig kvalitetsarbeid bidrar til å sikre en løpende kvalitetsutvikling i våre studieprogram, og involverer fagskolens ansatte og studenter, samt eksterne aktører fra arbeidslivet. 
+    </p>
+
+
+    <h3>Kvalitetssystemet skal sikre at kvalitetsarbeidet</h3>
+
+    <ul>
+        <li>en integrert del av fagskolens daglige arbeid, med en god balanse mellom formelt og uformelt kvalitetsarbeid</li>
+
+        <li>Har en tydelig ledelsesforankring på alle nivå i organisasjonen, hvor formelt ansvar og rapporteringslinjer er avklart</li>
+
+        <li>Er lett tilgjengelig for ansatte og studenter</li>
+
+        <li>Frambringer dokumentasjon fra ansatte, studenter og eksterne aktører som benyttes til å systematisk evaluere gjennomførte aktiviteter og sette inn tiltak der det er nødvendig</li>
+
+        <li>Preges av at kvalitetsindikatorer i fagskolens definerte kvalitetsområder benyttes som grunnlag for jevnlige evalueringer</li>
+
+        <li>Bidrar til at ansatte og studenter opplever eierskap til kvalitetsarbeidet, og opplever det som nyttig og hensiktsmessig</li>
+
+        <li>Bidrar til en kultur for kontinuerlig oppfølging, forbedring, utvikling og læring</li>
+    
         </ul>
-    </div>
+
+    <h2>FORANKRING I LOVER OG REGELVERK</h2>
+        <p>
+            Noroff fagskoles kvalitetssystem skal tilfredsstille de krav som til enhver tid ligger i lovverk og føringer. Lov om høyere yrkesfaglig utdanning (Fagskoleloven) pålegger Noroff fagskole å ha et system for kvalitetssikring som sikrer og videreutvikler kvaliteten i utdanningene vi tilbyr. <br><br>
+
+            Eksternt er NOKUT er satt til å evaluere og godkjenne fagskolens systematiske kvalitetsarbeid. Internt er fagskolestyret øverste ansvarlige for kvaliteten i utdanningene og kvalitetsarbeidet, med rektor som ansvarshavende i den daglige driften. <br><br>
+            
+            Fagskoletilsynforskriften stiller krav til fagskolens systematiske kvalitetsarbeid og gir retningslinjer for hvordan arbeidet skal foregå. Det stilles krav til at kvalitetsarbeidet skal nedfelles i et eget system og hva systemet skal inneholde. I tillegg finnes en rekke føringer for kvalitetsarbeid og krav til kvalitetssystem nedfelt i nasjonale forskrifter. <br><br>
+            
+            <h3>Vårt kvalitetsarbeid er forankret i følgende lover, forskrifter og regelverk:</h3>
+            
+                <ul class="underlined">
+                    <li> Fagskoleloven (lov om høyere yrkesfaglig utdanning) </li>
+                    <li>Forskrift om kvalitetssikring og kvalitetsutvikling i høyere utdanning og fagskoleutdanning             (Studiekvalitetsforskriften) </li>
+                    <li>Forskrift om høyere yrkesfaglig utdanning (fagskoleforskriften) </li>
+                    <li>Forskrift om akkreditering av og tilsyn med høyere yrkesfaglig utdanning (fagskoletilsynsforskriften) </li>
+                    <li>Forskrift om private universiteter, høyskoler og fagskoler – krav til regnskap mv.</li>
+                    <li>Forskrift om fagskoleutdanning ved Noroff fagskole</li>
+                    <li>Nasjonalt kvalifikasjonsrammeverk for livslang læring (NKR)</li>
+                    <li>Forvaltningsloven</li> <br> <br>
+                    
+            
+                    <li>Informasjonsskriv om ny fagskoletilsynforskrift</li>
+                    <li>Kvalitetsområder for høyere yrkesfaglig utdanning</li>
+                    <li>Strategiplan for Noroff fagskole</li>
+                    <li>Fagfolk for framtiden – Fagskoleutdanning </li>
+                    <li>Standards and Guidelines for Quality Assurance in the European Higher Education Area (ESG)</li>
+                    <li>Videre vekst og kvalitet – Strategi for høyere yrkesfaglig utdanning </li>
+                    <li>Lærekraftig utvikling – Livslang læring for omstilling og konkurranseevne </li>
+                    <li>Kompetansereformen – lære hele livet </li>
+            
+        </p>
 
 
 
-<div id="time"></div>
 
-<div><h2>Roller</h2></div>
-
-<div id="roller">
-    <ul>
-        <li>
-            <input type="checkbox" checked name="rolle" id="student"> <label for="student">Student</label>
-        </li>
-        <li>
-            <input type="checkbox" disabled name="rolle" id="studentC"> <label for="studentC"> Student - Campus</label>
-        </li>
-        <li>
-            <input type="checkbox" disabled name="rolle" id="studentO"><label for="studentO"> Student - Online</label>
-        </li>
-        <li>
-            <input type="checkbox" disabled name="rolle" id="nystudent"> <label for="nystudent">Ny student</label>
-        </li>
-    </ul>
-</div>
-
-<div><h2>Kategorier</h2></div>
-
-<div id="kategorier">
-    <ul>
-        <li>
-            <input type="checkbox" name="kategori" id="rapporterevalueringer"> <label for="rapporterevalueringer"> Rapporter/Evalueringer</label>
-        </li>
-        <li>
-            <input type="checkbox" name="kategori" id="arrangementer"><label for="arrangementer"> Arrangementer</label>
-        </li>
-        <li>
-            <input type="checkbox" name="kategori" id="valgdeltakelse"> <label for="valgdeltakelse">Valg/Deltakelse</label>
-        </li>
-        <li>
-            <input type="checkbox" name="kategori" id="kontaktmednaeringslivet"><label for="kontaktmednaeringslivet"> Kontakt med næringslivet</label>
-        </li>
-        <li>
-            <input type="checkbox" name="kategori" id="viktigedatoer"><label for="viktigedatoer"> Viktige datoer</label>
-        </li>
-        <li>
-            <input type="checkbox" name="kategori" id="velgalle"><label for="velgalle"><b> Velg alle </b></label>
-        </li>
-    </ul>
-</div>
-
-</div>
-
-<div class="liste">
-    <h2>Liste</h2>
-    <div id="posts"></div>
-</div>
 
 </section>
 
 
-
-
-<details>
-    <summary>Read more</summary>
-    <p>Place your additional text here.</p>
-</details>
-<!--evt toggle--> 
-
-
- 
+    </main>
+   
 </body>
-<script src="script.js"></script>
+
 </html>
