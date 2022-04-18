@@ -105,16 +105,9 @@ h1, p {
 
 
 /* TEster design på checkbox!!!*/
-#periode > ul {
+#periode {
  list-style-type: disc;
 }
-
-#periode > ul {
-    padding-right: 1em;
-    margin: 20px;
-    justify-content: space-between;
-}
-
 
 input[type="checkbox"] {
     display: none;
