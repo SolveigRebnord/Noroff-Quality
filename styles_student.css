@@ -123,6 +123,32 @@ ul {
 
 .liste {
     grid-area: list;
-    text-align: center;
+    text-align: left;
   
+}
+
+.divenmin {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: grid;
+    grid-template-areas:
+    'title date'
+    'extra date';
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.divenmin > p:first-of-type  { /*Liten beskrivelse*/
+    font-size: 15px;
+    grid-area: extra;
+    text-align: left;
+}
+
+.divenmin > p:last-child { /* dato*/
+    color: red;
+    grid-area: date;
+}
+
+.divvaar {
+    background-color: aliceblue;
 }
