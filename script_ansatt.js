@@ -245,6 +245,7 @@ else if (vaarCheck.checked) {
   console.log(filteredListVaar);
   listPosts(filteredListVaar);
 
+
   if (hostCheck.checked) {
   let filteredList = ansattArray;
   console.log(filteredList);
@@ -275,8 +276,70 @@ else if (vaarCheck.checked) {
         }
   }
 
+  else if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked) {
+    let filteredListRolle = listRolle(filteredListVaar);
+    console.log(filteredListRolle);
+    listPosts(filteredListRolle);
+
+        if (hostCheck.checked) {
+          let filteredListRolleVaar = listRolle(ansattArray);
+          console.log(filteredListRolleVaar);
+          listPosts(filteredListRolleVaar);
+
+          if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+            let finalList = filterKat(filteredListRolleVaar);
+            console.log(finalList);
+            listPosts(finalList);
+          }
+        }
 
 
+        if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+          let filteredListKatVaar = filterKat(filteredListVaar);
+          console.log(filteredListKatVaar);
+          listPosts(filteredListKatVaar); 
+
+          if (hostCheck.checked) {
+            let filteredListRolleVaar = listRolle(ansattArray);
+            let finalList = filterKat(filteredListRolleVaar);
+            console.log(finalList);
+            listPosts(finalList);
+          }
+
+        }
+  }
+
+
+  else if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+    let filteredListKat = filterKat(filteredListVaar);
+    console.log(filteredListKat);
+    listPosts(filteredListKat);
+
+        if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked)  {
+          let filteredListKatRolle = listRolle(filteredListKat);
+          console.log(filteredListKatRolle);
+          listPosts(filteredListKatRolle);
+
+              if (hostCheck.checked) {
+                let filteredListKatAll = filterKat(ansattArray);
+                let finalList = listRolle(filteredListKatAll);
+                console.log(finalList);
+                listPosts(finalList);
+              }
+        }
+
+        if (hostCheck.checked) {
+          let filteredListKatAll = filterKat(ansattArray);
+          console.log(filteredListKatAll);
+          listPosts(filteredListKatAll);
+
+            if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked)  {
+              let finalList = listRolle(filteredListKatAll);
+              console.log(finalList);
+              listPosts(finalList);
+            }
+        }
+  }
 
 
 
