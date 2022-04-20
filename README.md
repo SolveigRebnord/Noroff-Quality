@@ -1,7 +1,10 @@
 # Noroff-Quality
 
 
-Mangler
+Mangler:
 
-- Velg alle knappen ticker alle kategoriene, men får ikke til at den fjerner alle checkmerkene når den trykkes igjen. Koden gjør riktig, men checkmerkene går ikkke vekK.
-- Det ligger en post.html fil hvor vi kan prøve få til at enten man kan klikke på tittelen eller diven, også sendes man til en side der det bare står samme info som vi har sagt før, men får vist at vi får til å linke med id. Se post.html, jeg gjorde det med en før a
+- Velg alle knappen ticker alle kategoriene, men får ikke til at den fjerner alle checkmerkene når den trykkes igjen. Koden gjør riktig, men checkmerkene går ikkke vekK
+
+- !! Fått til den post.html. Du kan gjøre den litt finere om du gidder, eller bare legge inn mer info på den under tittel
+
+- Generelt tror jeg alt funker ellers, hvis du vil fikse på design eller div eller faktisk lage mer av det vi lagde i prototype er det bare å kjøre på, men tror vi har vist det vi skal i forhold til den egentlige CMS oppgaven <3
