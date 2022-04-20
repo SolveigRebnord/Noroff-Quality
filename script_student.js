@@ -205,6 +205,7 @@ function listRoller() {
   if (hostCheck.checked) {
 
     let filteredListHost = products.filter(filterByHost);
+    console.log(filteredListHost);
     let filteredList = filteredListHost;
 
 
