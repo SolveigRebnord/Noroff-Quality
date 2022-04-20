@@ -92,24 +92,24 @@ function listPosts (posts) {
 
 
 
-hostCheck.addEventListener('change', listRoller); //ikke bli forvirret av roller, dette er den generelle list med eller uten filter
-vaarCheck.addEventListener('change', listRoller);
+hostCheck.addEventListener('change', filterAnsatt); //ikke bli forvirret av roller, dette er den generelle list med eller uten filter
+vaarCheck.addEventListener('change', filterAnsatt);
 
 
 
 //er et element, kan ikke si === true
-overordnetACheck.addEventListener('change', listRoller);
-adminCheck.addEventListener('change', listRoller);
-fagligACheck.addEventListener('change', listRoller);
+overordnetACheck.addEventListener('change', filterAnsatt);
+adminCheck.addEventListener('change', filterAnsatt);
+fagligACheck.addEventListener('change', filterAnsatt);
 
 
 
-rapporterevalueringerCheck.addEventListener('change', listRoller);
-arrangementerCheck.addEventListener('change', listRoller);
-valgdeltakelseCheck.addEventListener('change', listRoller);
-soknaderbeslutningerCheck.addEventListener('change', listRoller);
-viktigedatoerCheck.addEventListener('change', listRoller);
-velgalleCheck.addEventListener('change', listRoller);
+rapporterevalueringerCheck.addEventListener('change', filterAnsatt);
+arrangementerCheck.addEventListener('change', filterAnsatt);
+valgdeltakelseCheck.addEventListener('change', filterAnsatt);
+soknaderbeslutningerCheck.addEventListener('change', filterAnsatt);
+viktigedatoerCheck.addEventListener('change', filterAnsatt);
+velgalleCheck.addEventListener('change', filterAnsatt);
 
 
 
@@ -121,7 +121,7 @@ velgalleCheck.addEventListener('change', listRoller);
 
 // mangler kategori alene
 
-function listRoller() {
+function filterAnsatt() {
 
 let filteredList = "";
   
@@ -340,57 +340,190 @@ else if (vaarCheck.checked) {
             }
         }
   }
-
-
-
-
-
-
 }// vår
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-else if (vaarCheck.checked && hostCheck.checked) {
-  let filteredList = ansattArray;
-  console.log(filteredList);
-  listPosts(filteredList);
-}
-
-
-
 else if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked) {
-  let filteredList = listRolle(ansattArray);
+  let filteredListRolle = listRolle(ansattArray);
+  console.log(filteredListRolle);
+  listPosts(filteredListRolle);
+
+
+
+  if (vaarCheck.checked) {
+  let filteredList = filterVaar(filteredListRolle);
   console.log(filteredList);
   listPosts(filteredList);
-}
+
+        if (hostCheck.checked) {
+          let filteredList = filteredListRolle;
+          console.log(filteredList);
+          listPosts(filteredList);
+        
+          if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+            let filteredList = filterKat(filteredListRolle);
+            console.log(filteredList);
+            listPosts(filteredList)
+          }
+        }
+  }
+
+  else if (hostCheck.checked) {
+    let filteredListRolleHost = filterHost(filteredListRolle);
+    console.log(filteredListRolleHost);
+    listPosts(filteredListRolleHost);
+  
+          if (vaarCheck.checked) {
+            let filteredList = filteredListRolle;
+            console.log(filteredList);
+            listPosts(filteredList);
+          
+            if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+              let filteredList = filterKat(filteredListRolle);
+              console.log(filteredList);
+              listPosts(filteredList)
+            }
+          }
+
+          if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+            let filteredList = filterKat(filteredListRolleHost);
+            console.log(filteredList);
+            listPosts(filteredList)
+
+            if (vaarCheck.checked) {
+              let filteredList = filterKat(filteredListRolle);
+              console.log(filteredList);
+              listPosts(filteredList)
+            }
+          }
+
+
+    }
+
+
+    else if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+      let filteredListRolleKat = filterKat(filteredListRolle);
+      console.log(filteredListRolleKat);
+      listPosts(filteredListRolleKat);
+
+          if (vaarCheck.checked) {
+            let filteredList = filterVaar(filteredListRolleKat);
+            console.log(filteredList);
+            listPosts(filteredList);
+
+            if (hostCheck.checked) {
+              let filteredList = filteredListRolleKat;
+              console.log(filteredList);
+              listPosts(filteredList);
+            }
+          }
+
+          if (hostCheck.checked) {
+            let filteredList = filterHost(filteredListRolleKat);
+            console.log(filteredList);
+            listPosts(filteredList);
+
+            if (vaarCheck.checked) {
+              let filteredList = filteredListRolleKat;
+              console.log(filteredList);
+              listPosts(filteredList);
+            }
+          }
+    }
+
+} //rolle
 
 
 
 else if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || soknaderbeslutningerCheck.checked || viktigedatoerCheck.checked) {
+  let filteredListKat = filterKat(ansattArray);
+  console.log(filteredListKat);
+  listPosts(filteredListKat);
 
-  let filteredList = filterKat(ansattArray);
-  console.log(filteredList);
-  listPosts(filteredList);
-} 
+
+
+  if (vaarCheck.checked) {
+    let filteredList = filterVaar(filteredListKat);
+    console.log(filteredList);
+    listPosts(filteredList);
+  
+          if (hostCheck.checked) {
+            let filteredList = filteredListKat;
+            console.log(filteredList);
+            listPosts(filteredList);
+            
+              if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked) {
+                let filteredList = listRolle(filteredListKat);
+                console.log(filteredList);
+                listPosts(filteredList)
+              }
+          }
+  }
+
+  else if (hostCheck.checked) {
+    let filteredListKatHost = filterHost(filteredListKat);
+    console.log(filteredListKatHost);
+    listPosts(filteredListKatHost);
+  
+          if (vaarCheck.checked) {
+            let filteredList = filteredListKat;
+            console.log(filteredList);
+            listPosts(filteredList);
+          
+            if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked) {
+              let filteredList = listRolle(filteredListKat);
+              console.log(filteredList);
+              listPosts(filteredList)
+            }
+          }
+
+          if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked) {
+            let filteredList = listRolle(filteredListKatHost);
+            console.log(filteredList);
+            listPosts(filteredList)
+
+            if (vaarCheck.checked) {
+              let filteredList = listRolle(filteredListKat);
+              console.log(filteredList);
+              listPosts(filteredList)
+            }
+          }
+    }
+  
+    else if (overordnetACheck.checked || adminCheck.checked || fagligACheck.checked) {
+      let filteredListRolleKat = listRolle(filteredListKat);
+      console.log(filteredListRolleKat);
+      listPosts(filteredListRolleKat);
+
+          if (vaarCheck.checked) {
+            let filteredList = filterVaar(filteredListRolleKat);
+            console.log(filteredList);
+            listPosts(filteredList);
+
+            if (hostCheck.checked) {
+              let filteredList = filteredListRolleKat;
+              console.log(filteredList);
+              listPosts(filteredList);
+            }
+          }
+
+          if (hostCheck.checked) {
+            let filteredList = filterHost(filteredListRolleKat);
+            console.log(filteredList);
+            listPosts(filteredList);
+
+            if (vaarCheck.checked) {
+              let filteredList = filteredListRolleKat;
+              console.log(filteredList);
+              listPosts(filteredList);
+            }
+          }
+        
+      }
+} //kat
 
 
 } //list roller
