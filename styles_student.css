@@ -1,0 +1,231 @@
+/*font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Fjalla One', sans-serif;*/
+
+body {
+    margin: 3rem 5rem 0 5rem;
+}
+
+header img {
+    width: 100%;
+}
+
+
+h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 80px;
+    margin: 0;
+}
+
+.text-header {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 50px;
+    margin: 0;
+}
+
+.ansatt, .student {
+    display: flex;
+    width: 58%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+main {
+    padding: 4rem 0 0 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+
+mark {
+    color: red;
+    background: none;
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.filter > div > ul {
+    margin: 0;
+}
+
+/*https://moderncss.dev/pure-css-custom-checkbox-style/*/
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+    box-sizing: border-box;
+    position: relative;
+  
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    transform: scale(0);
+    transform-origin: center;
+    transition: 120ms transform ease-in-out;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+}
+
+input[type="checkbox"]:checked::before {
+    content: url(img/icons8-ok-3.svg);
+    transform: scale(1);
+    position: absolute;
+}
+
+input[type="checkbox"]:not(:checked)::before {
+    content: url(img/icons8-ok-3.svg);
+    transform: scale(0);
+    transform-origin: center;
+    transition: 120ms transform ease-out;
+    position: absolute;
+
+}
+
+
+#periode > ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+ul {
+    padding: 0;
+    margin: 0 0 0 3rem;
+}
+
+
+/* Design til resten av Student siden */
+.section-ansvar-brodtxt {
+    max-width: 650px;
+}
+
+
+/* ANsvar i kvalitetsarbeidet seksjon:*/
+.img-ansvar {
+    width: 330px;
+    align-content: center;
+}
+
+
+.ansvar-kvalitet-header {
+    font-weight: bold;
+}
+
+
+/*ROLLER seksjon */
+.roller-brodtxt {
+    text-align: center;
+}
+
+.roller-img {
+    text-align: center;
+}
+
+
+/* BOKS MED TEKST HAHA */
+.tekstboks {
+    max-width: 1300px;
+    height: 80vh;
+    background-color: #FAF6F6;
+}
+
+.tekstboks-header {
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.boks-bold-txt {
+    font-size: 3rem;
+    font-weight: bolder;    
+}
+
+.tekstboks-brodtekst {
+    text-decoration: underline;
+    text-align: left;
+    margin: 30px;
+}
+
+/*ANSATT CSS */
+.ansvar-brodtekst {
+    max-width: 900px;
+    text-align: left;
+}
+
+.ansatt-ansvar-img {
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Desktop */
+@media (min-width: 1041px) {
+    .grid-section {
+        display: flex;
+    }
+    
+    .filter , .liste {
+        flex: 50%;
+    }
+
+    .ansvar-kvalitet {
+        display: flex;
+    }
+    
+    .ansvar-tekst, .ansvar-img {
+        flex: 50%;
+    }
+
+    .img-ansvar {
+        width: 450px;
+    }
+
+    /*Roller bilder desktop/mobil vennlig: */
+    .roller-img {
+        display: flex;
+    }
+
+    .img-roller {
+        flex: 33.33%;
+        width: 40%;
+    }
+
+    /*Tekstboks ting desktop */
+    .tekstboks-flex {
+        display: flex;
+    }
+    
+    .flex-boks {
+        flex: 50%;
+    }
+
+    /*ANSATT SIDE */
+    .ansatt-ansvar-img {
+        width: 950px;
+    }
+}

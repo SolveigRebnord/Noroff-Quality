@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+  <link rel="stylesheet" href="style_index.css">
+  <link rel="stylesheet" href="styles_student.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;400;500;600;700&family=Fjalla+One&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/ecce34c200.js" crossorigin="anonymous"></script>
+</head>
+
+<!--font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Fjalla One', sans-serif;-->
+
+
+<body>
+    <header>
+        <div class="menu-logo">
+            <a href="index.html"><img src="img/idk.PNG" class="logo" alt="Logo til Noroff"></a>
+         </div>
+            <label for="hamburger-menu"><i class="fas fa-bars"></i></label>
+            <input type="checkbox" id="hamburger-menu" />
+        <nav>
+            <ul>
+                <li> <a href="index.html">Hjem</a> </li>
+                <li> <a href="">Studier</a> </li>  
+                <li> <a href="">Søknad</a> </li>
+                <li> <a href="">Accelerate</a> </li>
+                <li> <a href="">Om</a> </li>
+                <li> <a href="">Kontakt</a> </li>
+                <li> <a href="">English</a> </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="student">
+        <a href="index.html"><img src="img/logo.svg" alt="Noroff quality logo"></a>
+        <h1>Student</h1>
+    </section>
+
+    <p>Se hva du som <mark>student</mark> kan gjøre for å sikre kvalitet under hele skoleåret</p>
+
+
+<main>
+
+<section class="grid-section">
+
+    <div class="filter">
+
+    <div id="periode">
+        <ul>
+            <li>
+                <input type="checkbox" name="periode" id="host"> <label for="host">Høst 2022</label>
+            </li>
+            <li>
+                <input type="checkbox" name="periode" id="vaar"><label for="vaar">Vår 2023</label>
+            </li>
+        </ul>
+    </div>
+
+
+
+<div id="time"></div>
+
+<div><h2>Roller</h2></div>
+
+<div id="roller">
+    <ul>
+        <li>
+            <input type="checkbox" checked name="rolle" id="student"> <label for="student">Student</label>
+        </li>
+        <li>
+            <input type="checkbox" disabled name="rolle" id="studentC"> <label for="studentC"> Student - Campus</label>
+        </li>
+        <li>
+            <input type="checkbox" disabled name="rolle" id="studentO"><label for="studentO"> Student - Online</label>
+        </li>
+        <li>
+            <input type="checkbox" disabled name="rolle" id="nystudent"> <label for="nystudent">Ny student</label>
+        </li>
+    </ul>
+</div>
+
+<div><h2>Kategorier</h2></div>
+
+<div id="kategorier">
+    <ul>
+        <li>
+            <input type="checkbox" name="kategori" id="rapporterevalueringer"> <label for="rapporterevalueringer"> Rapporter/Evalueringer</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="arrangementer"><label for="arrangementer"> Arrangementer</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="valgdeltakelse"> <label for="valgdeltakelse">Valg/Deltakelse</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="kontaktmednaeringslivet"><label for="kontaktmednaeringslivet"> Kontakt med næringslivet</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="viktigedatoer"><label for="viktigedatoer"> Viktige datoer</label>
+        </li>
+        <li>
+            <input type="checkbox" name="kategori" id="velgalle"><label for="velgalle"><b> Velg alle </b></label>
+        </li>
+    </ul>
+</div>
+
+</div>
+
+<div class="liste">
+    <h2>Liste</h2>
+    <div id="posts"></div>
+</div>
+
+</section>
+
+</main>
+
+
+<details>
+    <summary>Read more</summary>
+    <p>Place your additional text here.</p>
+</details>
+<!--evt toggle--> 
+
+<h2 class = "text-header">ANSVAR I KVALITETSARBEIDET</h2>
+<p class="section-ansvar-brodtxt">Som student har også du et ansvar for å sikre kvalitet. 
+    Gjennom anonyme evalueringer og undersøkelser, men også via 
+    kommunikasjon med klassens tillitsvalgt eller direkte til faglærer
+</p>
+   <div class="ansvar-kvalitet">
+         <div class="ansvar-tekst">
+             <p class="ansvar-kvalitet-header">Vår kvalitet gjenspeiler seg i</p>
+             <p>Dine muligheter i næringslivet etter endt studie</p>
+             <p>Din skolehverdag</p>
+             <p>Din kompetanse og kunnskap</p>
+             <p>Ditt nettverk og din relasjonsbygging</p>
+         </div>
+         <div class="ansvar-img">
+             <img src="img/ansvar-img.PNG" class="img-ansvar" alt="Tankekart som forklarer hvordan studenter samhandler med faglærer gjennom undersøkelser">
+         </div>
+   </div>
+
+<h2 class = "text-header">ROLLER</h2>
+<p class="roller-brodtxt">Trykk på bildet for å lese mer om ansvaret til hver enkelt rolle</p>
+<div class="roller-img">
+    <img src="img/tillitsvalgt.png" class="img-roller" alt="Tillitsvalgt">
+    <img src="img/studentråd.png" class="img-roller" alt="Studentråd">
+    <img src="img/klagenemd.png" class="img-roller" alt="Klagenemd">
+</div>
+<p>Har du spørsmål angående din rolle?</p>
+<p>Kontakt oss på admin@noroff.no</p>
+
+<section class="tekstboks">
+<p class="tekstboks-header">Vi sikrer kvalitet gjennom rapportering og evaluering</p>
+<div class="tekstboks-flex">
+    <div class="flex-boks">
+        <p class="boks-bold-txt">89%</p>
+        <p>Av elevene ved Noroff opplevde at studiehverdagen overgikk deres forventinger</p>
+    </div>
+    <div class="flex-boks">
+        <p class="boks-bold-txt">2/3</p>
+        <p>Elever ved IT-studier på Noroff fikk tilbud om jobb før studieslutt</p>
+    </div>
+</div>
+<div class="tekstboks-tekst">
+<p class="tekstboks-brodtekst">Les halvårsrapporten for 2022</p>
+<p class="tekstboks-brodtekst">Se alle rapporter/evalueringer for 2021</p>
+<p class="tekstboks-brodtekst">Se hvordan Noroff gjør det på interne undersøkelser</p>
+<p class="tekstboks-brodtekst">Se hvordan Noroff gjør det på NOKUT og andre eksterne undersøkelser</p>
+</div>
+</section>
+ 
+</body>
+<script src="script_student.js"></script>
+</html>
