@@ -66,6 +66,17 @@ li {
     margin: 0;
 }
 
+.divenmin {
+    border: solid 1px black;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.divenmin > h3 {
+    padding: 0.5rem;
+}
+
 /*https://moderncss.dev/pure-css-custom-checkbox-style/*/
 
 input[type="checkbox"] {
