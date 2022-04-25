@@ -3,7 +3,8 @@
 
 const queryString = window.location.search;
 const id = new URLSearchParams(queryString).get('id');
-if (!id) { window.location = "index.html"; }
+if (!id) { window.location = "student.html"; }
+if (!id) { window.location = "ansatt.html"; }
 
 const url100 = `https://www.sunroad.no/cms/wp-json/wp/v2/product/${id}`;
 fetch(url100)
@@ -22,14 +23,15 @@ fetch(url100)
 const output1 = document.querySelector("#post");
 function displayPost (data) {
   
-  const title = data.title.rendered;
+  title = data.title.rendered;
  
-  const link = data.link;
+  
   let content = `
   <h1>${title}</h1>
   `;
   output1.innerHTML = content;
-  document.title = title;
+
+  document.title = data.title.rendered;
 }
 
 
