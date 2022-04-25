@@ -80,7 +80,9 @@ function listPosts (posts) {
 
               myList += `<div class="divenmin"><h3>${post.title.rendered}</h3>
                         ${(post.content.rendered)?post.content.rendered:'<p>&nbsp;</p>'}
-                        ${post.excerpt.rendered}</div>`;
+                        ${post.excerpt.rendered}
+                        <a href="post.html?id=${post.id}">Link</a>
+                        </div>`;
           }
 
     else {
@@ -127,6 +129,7 @@ function filterStudent() {
     //console.log(studentArray);
   
   
+
   
   if (hostCheck.checked) {
     let filteredHostList = filterHost(studentArray);
@@ -160,8 +163,8 @@ function filterStudent() {
                 if (vaarCheck.checked) {
                     let filteredListRolleVaar = listRolle(studentArray);
                     let finalList = filterKat(filteredListRolleVaar);
-                    console.log(filteredListRolleVaar);
-                    listPosts(filteredListRolleVaar);
+                    console.log(finalList);
+                    listPosts(finalList);
                 }
           }
     } 
@@ -259,7 +262,7 @@ function filterStudent() {
               }
           }
   
-          if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
+          else if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
             let filteredListRolle = listRolle(studentArray);
             console.log(filteredListRolle);
             listPosts(filteredListRolle);
@@ -521,6 +524,23 @@ function filterStudent() {
         }
   } //kat
   
+
+  if (velgalleCheck.checked) { 
+    rapporterevalueringerCheck.checked = true; 
+    arrangementerCheck.checked = true;
+    valgdeltakelseCheck.checked = true; 
+    kontaktmednareingslivetCheck.checked = true; 
+    viktigedatoerCheck.checked = true;
+
+    if (velgalleCheck.checked = false) {//? funker ikke
+    rapporterevalueringerCheck.checked = false; 
+    arrangementerCheck.checked = false;
+    valgdeltakelseCheck.checked = false; 
+    kontaktmednareingslivetCheck.checked = false; 
+    viktigedatoerCheck.checked = false; 
+  }
+  }
+
   
   } //list roller
   
