@@ -78,7 +78,7 @@ function listPosts (posts) {
 
               myList += `<div class="divenmin"><h3>${post.title.rendered}</h3>
                         ${(post.content.rendered)?post.content.rendered:'<p>&nbsp;</p>'}
-                        ${post.excerpt.rendered}
+                        <p>${post.excerpt.rendered}</p>
                         <a href="post.html?id=${post.id}">Link</a>
                         </div>`;
           }
