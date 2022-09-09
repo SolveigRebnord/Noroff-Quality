@@ -1,10 +1,13 @@
 # Noroff-Quality
 
-Javascript for filtrering/sortering av informasjon 
+- Javascript for filtrering/sortering av informasjon<br>
+- Bruk av Wordpress som headless CMS <br><br>
 
-Hei, du som sjekker ut dette prosjektet! 
-Dette er mitt eksamensoppgave våren 2022, og første fullverdige prosjekt med HTML, CSS og Javascript.
-Derav, ingen rammeverk osv. er benyttet 
+Hei, du som sjekker ut dette prosjektet!<br>
+Dette er Solveig og Anna sitt første utvikler-samarbeid, hvor vi hentet data fra WP og brukte JS for å lage et filtrering- og sorteringssytem.<br>
+Fokuset var derfor ikke design, og produktet er resultat av en bratt JS-læringskurve. <br> <br>
 
+Dette var vår første gang å samarbeide om et prosjekt, noe vi er blitt betydelig flinkere på siden dette prosjektet<br>
+Vi håper det kommer frem hvor mye vi lærte av denne prosessen; fra prototype til fungerende applikasjon :-) <br><br>
 
-Ta i betrakning at dette var et privat prosjekt, og laget før gode ferdigheter innen loggføring og arbeidsmetodikk ble til. Derav, forferdelig kommentering av commits og konsoll-logger som tilhører fortiden :-)
+, S & A
