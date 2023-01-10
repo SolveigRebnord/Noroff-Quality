@@ -1,15 +1,9 @@
-console.log("hei");
-
 
 const hostCheck = document.querySelector("input#host");
 const vaarCheck = document.querySelector("input#vaar");
-
-
-
 const studentCCheck = document.querySelector("input#studentC");
 const studentOCheck = document.querySelector("input#studentO");
 const nystudentCheck = document.querySelector("input#nystudent");
-
 
 const rapporterevalueringerCheck = document.querySelector("input#rapporterevalueringer");
 const arrangementerCheck = document.querySelector("input#arrangementer");
@@ -18,38 +12,25 @@ const kontaktmednareingslivetCheck = document.querySelector("input#kontaktmednae
 const viktigedatoerCheck = document.querySelector("input#viktigedatoer");
 const velgalleCheck = document.querySelector("input#velgalle");
 
+let products = [];
+let dates = [];
 
 
-
-var products = [];
-
-var dates = [];
-
-const url2 = "https://www.sunroad.no/cms/wp-json/wp/v2/product?per_page=50"; // gir alle products
-fetch(url2)
+//const url2 = "https://www.sunroad.no/cms/wp-json/wp/v2/product?per_page=50"; // gir alle products
+fetch('csvjson.json')
 .then(response => response.json())
 .then(data => {
-  //listTime(data);
-  //console.log('Success:', data);
   console.log(data);
-  //listPosts(data);
-
   products = data;
  
   studentCCheck.disabled=false;
-  studentOCheck.disabled=false; // først når product list er loadet, får vi trykke
+  studentOCheck.disabled=false;
   nystudentCheck.disabled=false;
-  //console.log(products);
+
 })
 .catch((error) => {
   console.error('Error:', error);
 });
-
-// display og display none
-
-
-
-
 
 const outTime = document.querySelector("#time");
 function listTime (array) {
@@ -57,15 +38,10 @@ function listTime (array) {
     
     for (let item of array) {
         let time = new Date(item.date);
-        //console.log(time);
         myTime.push(time);
 }
     outTime.innerHTML = myTime;
-    console.log(myTime);
 }
-
-
-
 
 
 const output = document.querySelector("#posts");
@@ -74,39 +50,27 @@ function listPosts (posts) {
     let myList = "";
 
     for (let post of posts) {
-      //console.log(post);
-
-        if (post.title.rendered) {
-
-              myList += `<div class="divenmin"><h3>${post.title.rendered}</h3>
-                        ${(post.content.rendered)?post.content.rendered:'<p>&nbsp;</p>'}
-                        ${post.excerpt.rendered}
+        if (post.Name) {
+              myList += `<div class="divenmin"><h3>${post.Name}</h3>
+                        ${(post.Description)?post.Description:'<p>&nbsp;</p>'}
+                        ${post.Shortdescription}
                         <a href="post.html?id=${post.id}">Link</a>
                         </div>`;
           }
-
     else {
       console.log("missing element" + post);
     }
-
   }
     output.innerHTML = myList;
-   
 }
 
 
-
-hostCheck.addEventListener('change', filterStudent); //ikke bli forvirret av roller, dette er den generelle list med eller uten filter
+hostCheck.addEventListener('change', filterStudent);
 vaarCheck.addEventListener('change', filterStudent);
 
-
-
-//er et element, kan ikke si === true
 studentCCheck.addEventListener('change', filterStudent);
 studentOCheck.addEventListener('change', filterStudent);
 nystudentCheck.addEventListener('change', filterStudent);
-
-
 
 rapporterevalueringerCheck.addEventListener('change', filterStudent);
 arrangementerCheck.addEventListener('change', filterStudent);
@@ -116,68 +80,48 @@ viktigedatoerCheck.addEventListener('change', filterStudent);
 velgalleCheck.addEventListener('change', filterStudent);
 
 
-
+let filteredList = "";
 
 
 function filterStudent() {
 
-  let filteredList = "";
-    
     let studentArray = products.filter((item) => {
-      return item.product_cat.includes(28);
+      return item.categories.includes('STUDENT');
     });
-    //console.log(studentArray);
-  
-  
-
   
   if (hostCheck.checked) {
     let filteredHostList = filterHost(studentArray);
-    console.log(filteredHostList);
     listPosts(filteredHostList);
-  
-  
   
     if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
       let filteredRolleList = listRolle(filteredHostList);
-      console.log(filteredRolleList);
       listPosts(filteredRolleList);
-  
+        if (vaarCheck.checked) {
+          let filteredListRolleVaar = listRolle(studentArray);
+          listPosts(filteredListRolleVaar);
+          if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
+            let finalList = filterKat(filteredListRolleVaar);
+            listPosts(finalList);
+          }
+        }
+        if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
+          let filteredListRolleKat = filterKat(filteredRolleList);
+          listPosts(filteredListRolleKat);
           if (vaarCheck.checked) {
             let filteredListRolleVaar = listRolle(studentArray);
-            console.log(filteredListRolleVaar);
-            listPosts(filteredListRolleVaar);
-  
-                  if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
-                  let finalList = filterKat(filteredListRolleVaar);
-                  console.log(finalList);
-                  listPosts(finalList);
-                  }
+            let finalList = filterKat(filteredListRolleVaar);
+            listPosts(finalList);
           }
-  
-          if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
-            let filteredListRolleKat = filterKat(filteredRolleList);
-            console.log(filteredListRolleKat);
-            listPosts(filteredListRolleKat);
-  
-                if (vaarCheck.checked) {
-                    let filteredListRolleVaar = listRolle(studentArray);
-                    let finalList = filterKat(filteredListRolleVaar);
-                    console.log(finalList);
-                    listPosts(finalList);
-                }
-          }
+        }
     } 
   
     
     else if (vaarCheck.checked) {
       let filteredList = studentArray;
-      console.log(filteredList);
       listPosts(filteredList);
   
       if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
         let filteredListRolle = listRolle(studentArray);
-              console.log(filteredListRolle);
               listPosts(filteredListRolle);
   
               if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
@@ -187,13 +131,11 @@ function filterStudent() {
   
           if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
             let filteredListKat = filterKat(studentArray);
-            console.log(filteredListKat);
               listPosts(filteredListKat);
   
   
               if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
                 let finalList = listRolle(filteredListKat);
-                console.log(finalList);
                 listPosts(finalList);
               }
             }
@@ -204,72 +146,58 @@ function filterStudent() {
     else if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
   
       let filteredList = filterKat(filteredHostList);
-      console.log(filteredList);
       listPosts(filteredList);
   
           if (vaarCheck.checked) {
             let filteredListKatVaar = listKat(studentArray);
-            console.log(filteredListKatVaar);
             listPosts(filteredListKatVaar);
   
             if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
               let finalList = listRolle(filteredListKatVaar);
-                  console.log(finalList);
                   listPosts(finalList);
                 } 
           }
   
-  
           if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
             let filteredListRolle = listRolle(filteredHostList);
-            console.log(filteredListRolle);
             listPosts(filteredListRolle);
   
                 if (vaarCheck.checked) {
                   let filteredListKatVaar = listKat(studentArray);
                   let finalList = listRolle(filteredListKatVaar);
-                  console.log(finalList);
                   listPosts(finalList);
                  }
           }
     }
-  
-  
-  } //slutt høst
+  }
   
   
   
   else if (vaarCheck.checked) {
     let filteredListVaar = filterVaar(studentArray);
-    console.log(filteredListVaar);
     listPosts(filteredListVaar);
   
   
     if (hostCheck.checked) {
     let filteredList = studentArray;
-    console.log(filteredList);
     listPosts(filteredList);
   
           if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
           let filteredListKat = filterKat(studentArray);
-          console.log(filteredListKat);
           listPosts(filteredListKat);
   
           if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
             let finalList = listRolle(filteredListKat);
-                console.log(finalList);
                 listPosts(finalList);
               }
           }
   
           else if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
             let filteredListRolle = listRolle(studentArray);
-            console.log(filteredListRolle);
             listPosts(filteredListRolle);
   
             if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
                 let finalList = filterKat(filteredListRolle);
-                console.log(finalList);
                 listPosts(finalList);
                 }
           }
@@ -277,17 +205,14 @@ function filterStudent() {
   
     else if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
       let filteredListRolle = listRolle(filteredListVaar);
-      console.log(filteredListRolle);
       listPosts(filteredListRolle);
   
           if (hostCheck.checked) {
             let filteredListRolleVaar = listRolle(studentArray);
-            console.log(filteredListRolleVaar);
             listPosts(filteredListRolleVaar);
   
             if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
               let finalList = filterKat(filteredListRolleVaar);
-              console.log(finalList);
               listPosts(finalList);
             }
           }
@@ -295,13 +220,11 @@ function filterStudent() {
   
           if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
             let filteredListKatVaar = filterKat(filteredListVaar);
-            console.log(filteredListKatVaar);
             listPosts(filteredListKatVaar); 
   
             if (hostCheck.checked) {
               let filteredListRolleVaar = listRolle(studentArray);
               let finalList = filterKat(filteredListRolleVaar);
-              console.log(finalList);
               listPosts(finalList);
             }
   
@@ -311,30 +234,25 @@ function filterStudent() {
   
     else if (rapporterevalueringerCheck.checked || arrangementerCheck.checked || valgdeltakelseCheck.checked || kontaktmednareingslivetCheck.checked || viktigedatoerCheck.checked) {
       let filteredListKat = filterKat(filteredListVaar);
-      console.log(filteredListKat);
       listPosts(filteredListKat);
   
       if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
         let filteredListKatRolle = listRolle(filteredListKat);
-            console.log(filteredListKatRolle);
             listPosts(filteredListKatRolle);
   
                 if (hostCheck.checked) {
                   let filteredListKatAll = filterKat(studentArray);
                   let finalList = listRolle(filteredListKatAll);
-                  console.log(finalList);
                   listPosts(finalList);
                 }
           }
   
           if (hostCheck.checked) {
             let filteredListKatAll = filterKat(studentArray);
-            console.log(filteredListKatAll);
             listPosts(filteredListKatAll);
   
             if (studentCCheck.checked || studentOCheck.checked || nystudentCheck.checked) {
               let finalList = listRolle(filteredListKatAll);
-                console.log(finalList);
                 listPosts(finalList);
               }
           }
@@ -597,72 +515,71 @@ function filterStudent() {
   
   
   function listRolle (array) {
+
+
   
     let rolleList = [];
   
     if (studentCCheck.checked) {
-      rolleList.push(24);
+      rolleList.push('Student - Campus');
     }
   
     if (studentOCheck.checked) {
-      rolleList.push(23);
+      rolleList.push('Student-Online');
     }
   
     if (nystudentCheck.checked) {
-      rolleList.push(22);
+      rolleList.push('Ny student');
     }
   
     console.log(rolleList);
   
     filteredList = array.filter((rolle) => {
        
-      return rolle.product_cat.some(i => rolleList.includes(i));
+      return rolle.categories.some(i => rolleList.includes(i));
     });
-    //console.log(filteredList);
+    console.log(filteredList);
     return filteredList;
   }
   
+
   
   
   function filterKat (array) {
+    
   
     let katList = [];
   
     if (rapporterevalueringerCheck.checked) {
-      katList.push(21);
+      katList.push('Rapporter/Evalueringer');
     }
   
     if (arrangementerCheck.checked) {
-      katList.push(27);
+      katList.push('Arrangement');
     }
   
     if (valgdeltakelseCheck.checked) {
-      katList.push(29);
+      katList.push('Valg/Deltakelse');
     }
   
     if (kontaktmednareingslivetCheck.checked) {
-      katList.push(26);
+      katList.push('Kontakt med næringslivet');
     }
   
     if (viktigedatoerCheck.checked) {
-      katList.push(30);
+      katList.push('Viktige datoer');
     }
   
-    //console.log(katList);
-    //console.log(products.product_tag);
   
     filteredList = array.filter((kat) => {
-  
-      //console.log(kat.product_tag);
-       
-      return kat.product_tag.some(i => katList.includes(i));
-      //katList.includes(kat.product_tag);
+      let tags = kat.Tags;
+      console.log(tags)
+      return kat.Tags.split(",").some(i => katList.includes(i));
+
     });
-  
-  //console.log(filteredList);
     return filteredList;
   
-  } //list kat
+  }
   
   
 
